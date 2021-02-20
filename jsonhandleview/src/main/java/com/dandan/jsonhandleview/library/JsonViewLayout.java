@@ -79,8 +79,8 @@ public class JsonViewLayout extends ScrollView {
         this.addView(horizontalScrollView);
     }
 
-    public void bindJson(String jsonStr) {
-        if (canBindData()) {
+    public void bindJson(String jsonStr, boolean checkIsEmpty) {
+        if (checkIsEmpty && canBindData()) {
             throw new IllegalArgumentException("JsonViweLayout can not bind again.");
         }
         Object object = null;
@@ -99,8 +99,8 @@ public class JsonViewLayout extends ScrollView {
         createView();
     }
 
-    public void bindJson(JSONObject mJSONObject) {
-        if (canBindData()) {
+    public void bindJson(JSONObject mJSONObject, boolean checkIsEmpty) {
+        if (checkIsEmpty && canBindData()) {
             throw new IllegalArgumentException("JsonViweLayout can not bind again.");
         }
         this.mJSONObject = mJSONObject;
@@ -110,8 +110,8 @@ public class JsonViewLayout extends ScrollView {
         createView();
     }
 
-    public void bindJson(JSONArray mJSONArray) {
-        if (canBindData()) {
+    public void bindJson(JSONArray mJSONArray, boolean checkIsEmpty) {
+        if (checkIsEmpty && canBindData()) {
             throw new IllegalArgumentException("JsonViweLayout can not bind again.");
         }
         this.mJSONArray = mJSONArray;
